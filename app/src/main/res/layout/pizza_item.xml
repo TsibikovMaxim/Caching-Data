@@ -3,15 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
-
-    <ImageView
-        android:id="@+id/pizzaImageView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pizzaCardView"
         android:layout_width="135dp"
         android:layout_height="135dp"
         android:layout_margin="16dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:cardCornerRadius="12dp">
+
+        <ImageView
+            android:id="@+id/pizzaImageView"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/nameTextView"
@@ -20,7 +28,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_toEndOf="@id/pizzaImageView"
+        android:layout_toEndOf="@id/pizzaCardView"
         android:maxLines="1"
         android:text="Pizza"
         android:textColor="@color/black_text_color"
@@ -34,7 +42,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_toEndOf="@id/pizzaImageView"
+        android:layout_toEndOf="@id/pizzaCardView"
         android:lineSpacingExtra="4dp"
         android:maxLines="3"
         android:text="DespriptionDespriptionDespriptionDespriptionDespriptionDespription"
@@ -44,7 +52,8 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/pizzaImageView"
+        android:layout_alignBottom="@id/pizzaCardView"
+        app:cardBackgroundColor="@color/white"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
         app:cardCornerRadius="6dp"

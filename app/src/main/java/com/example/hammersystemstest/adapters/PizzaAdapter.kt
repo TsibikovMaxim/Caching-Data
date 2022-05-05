@@ -2,12 +2,14 @@ package com.example.hammersystemstest.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hammersystemstest.databinding.PizzaItemBinding
 import com.example.hammersystemstest.data.model.PizzaItem
+import com.example.hammersystemstest.view.ListFragmentDirections
 
 class PizzaAdapter : ListAdapter<PizzaItem, PizzaAdapter.PizzaViewHolder>(PizzaComparator()) {
 
@@ -21,6 +23,10 @@ class PizzaAdapter : ListAdapter<PizzaItem, PizzaAdapter.PizzaViewHolder>(PizzaC
         val currentItem = getItem(position)
         if (currentItem != null) {
             holder.bind(currentItem)
+        }
+        holder.itemView.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToItemFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
         }
     }
 
